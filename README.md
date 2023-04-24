@@ -1,6 +1,10 @@
 # Calculator
 This is a Python program that uses the Tkinter module to create a simple calculator GUI. The calculator has a text input box, an entry widget, with a width of 40 and a border width of 5. It also has several buttons for the user to input numbers and mathematical operations.
 
+
+<img width="190" alt="Screenshot 2023-04-24 134222" src="https://user-images.githubusercontent.com/130767932/233938592-e25fbe0c-fbce-4326-a600-dd73c662d757.png">
+
+
 The program starts by importing the Tkinter module, and then creating an instance of the Tkinter class, named 'root'.
 
 Next, a global variable 'math' is initialized to 'num', indicating that the user has not yet entered any mathematical operation. The 'num1' variable is also initialized to 0.
@@ -18,4 +22,3 @@ The 'bottom_equall()' function performs the appropriate mathematical operation b
 Finally, the program creates several buttons for the user to input numbers and mathematical operations. Each button is created using the Button widget and is assigned a command function that is called when the button is clicked. The buttons are then placed in the GUI using the grid() method.
 
 The program ends by calling the mainloop() method on the 'root' instance, which starts the event loop and keeps the program running until the user closes the window.
-<img width="190" alt="Screenshot 2023-04-24 134222" src="https://user-images.githubusercontent.com/130767932/233938592-e25fbe0c-fbce-4326-a600-dd73c662d757.png">
