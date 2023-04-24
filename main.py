@@ -6,8 +6,8 @@ Created on Sun Mar  5 16:05:59 2023
 from tkinter import *
 
 root = Tk()
-e = Entry(root,borderwidth=5, font=('Arial 13',15))
-e.grid(row=0, column=0, columnspan=4)
+e = Entry(root, borderwidth=5, font=('Arial 13',15))
+e.grid(row=0, columnspan=4)
 global math
 math = 'num'
 
