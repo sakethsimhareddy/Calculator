@@ -18,3 +18,4 @@ The 'bottom_equall()' function performs the appropriate mathematical operation b
 Finally, the program creates several buttons for the user to input numbers and mathematical operations. Each button is created using the Button widget and is assigned a command function that is called when the button is clicked. The buttons are then placed in the GUI using the grid() method.
 
 The program ends by calling the mainloop() method on the 'root' instance, which starts the event loop and keeps the program running until the user closes the window.
+<img width="190" alt="Screenshot 2023-04-24 134222" src="https://user-images.githubusercontent.com/130767932/233938592-e25fbe0c-fbce-4326-a600-dd73c662d757.png">
