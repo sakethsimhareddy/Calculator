@@ -6,7 +6,7 @@ Created on Sun Mar  5 16:05:59 2023
 from tkinter import *
 
 root = Tk()
-e = Entry(root, borderwidth=5, font=('Arial 13',15))
+e = Entry(root, borderwidth=5, font=('Arial 13', 15))
 e.grid(row=0, columnspan=4)
 global math
 math = 'num'
@@ -20,6 +20,7 @@ def bottom_click(num):
 
 def bottom_clear():
     e.delete(0, END)
+    e.config(background='white')
 
 
 def bottom_add():
@@ -64,29 +65,35 @@ def bottom_power():
 
 
 def bottom_equall():
-    if (math == 'add'):
+    if math == 'add':
         num = (e.get())
         num2 = int(num)
         s = num1 + num2
         bottom_clear()
         e.insert(0, str(s))
-    if (math == 'sub'):
+    if math == 'sub':
         num = (e.get())
         num2 = int(num)
         s = num1 - num2
         bottom_clear()
         e.insert(0, s)
-    if (math == 'mul'):
+    if math == 'mul':
         num2 = int(e.get())
         s = num1 * num2
         bottom_clear()
         e.insert(0, str(s))
-    if (math == 'div'):
+    if math == 'div':
         num2 = int(e.get())
-        s = num1 / num2
-        bottom_clear()
-        e.insert(0, str(s))
-    if (math == 'power'):
+        if num2 == 0:
+            e.insert(0, ' error ')
+            e.config(background='red')
+
+        else:
+            s = num1 / num2
+            bottom_clear()
+            e.insert(0, str(s))
+
+    if math == 'power':
         num2 = int(e.get())
         s = num1 ** num2
         bottom_clear()
