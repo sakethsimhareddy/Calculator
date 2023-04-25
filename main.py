@@ -60,7 +60,7 @@ def bottom_power():
     global math
     math = 'power'
     global num1
-    um1 = int(e.get())
+    num1 = int(e.get())
     bottom_clear()
 
 
