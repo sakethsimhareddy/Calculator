@@ -82,6 +82,7 @@ def bottom_equall():
         s = num1 * num2
         bottom_clear()
         e.insert(0, str(s))
+
     if math == 'div':
         num2 = int(e.get())
         if num2 == 0:
