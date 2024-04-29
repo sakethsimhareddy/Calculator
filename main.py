@@ -9,10 +9,14 @@ root = Tk()
 e = Entry(root, borderwidth=5, font=('Arial 13', 15))
 e.grid(row=0, columnspan=4)
 global math
-math = 'num'
+math = 'start'
 
 
 def bottom_click(num):
+    global math 
+    if math=='stop':
+        bottom_clear()
+        math='start'
     c = e.get()
     e.delete(0, END)
     return e.insert(0, c + str(num))
@@ -23,83 +27,17 @@ def bottom_clear():
     e.config(background='white')
 
 
-def bottom_add():
-    global math
-    math = 'add'
-    global num1
-    num = e.get()
-    num1 = int(num)
-    bottom_clear()
-
-
-def bottom_sub():
-    global math
-    math = 'sub'
-    global num1
-    num1 = int(e.get())
-    bottom_clear()
-
-
-def bottom_mul():
-    global math
-    math = 'mul'
-    global num1
-    num1 = int(e.get())
-    bottom_clear()
-
-
-def bottom_div():
-    global math
-    math = 'div'
-    global num1
-    num1 = int(e.get())
-    bottom_clear()
-
-
-def bottom_power():
-    global math
-    math = 'power'
-    global num1
-    num1 = int(e.get())
-    bottom_clear()
-
-
 def bottom_equall():
-    if math == 'add':
-        num = (e.get())
-        num2 = int(num)
-        s = num1 + num2
+    try:
+        y=eval(e.get())
         bottom_clear()
-        e.insert(0, str(s))
-    if math == 'sub':
-        num = (e.get())
-        num2 = int(num)
-        s = num1 - num2
-        bottom_clear()
-        e.insert(0, s)
-    if math == 'mul':
-        num2 = int(e.get())
-        s = num1 * num2
-        bottom_clear()
-        e.insert(0, str(s))
-
-    if math == 'div':
-        num2 = int(e.get())
-        if num2 == 0:
-            e.insert(0, ' error ')
-            e.config(background='red')
-
-        else:
-            s = num1 / num2
-            bottom_clear()
-            e.insert(0, str(s))
-
-    if math == 'power':
-        num2 = int(e.get())
-        s = num1 ** num2
-        bottom_clear()
-        e.insert(0, str(s))
-
+        e.insert(0,str(y))
+    except:
+        e.insert(0, ' undifined ')
+        e.config(background='red')
+    
+    global math
+    math='stop'
 
 b1 = Button(root, text="1", command=lambda: bottom_click(1), padx=20, pady=20)
 b2 = Button(root, text="2", command=lambda: bottom_click(2), padx=20, pady=20)
@@ -111,11 +49,11 @@ b7 = Button(root, text="7", command=lambda: bottom_click(7), padx=20, pady=20)
 b8 = Button(root, text="8", command=lambda: bottom_click(8), padx=20, pady=20)
 b9 = Button(root, text="9", command=lambda: bottom_click(9), padx=20, pady=20)
 b0 = Button(root, text="0", command=lambda: bottom_click(0), padx=50, pady=20)
-badd = Button(root, text="+", command=bottom_add, padx=30, pady=20)
-bsub = Button(root, text="-", command=bottom_sub, padx=20, pady=20)
-bmul = Button(root, text="*", command=bottom_mul, padx=20, pady=20)
-bdiv = Button(root, text="/", command=bottom_div, padx=20, pady=20)
-bpower = Button(root, text="^", command=bottom_power, padx=30, pady=20)
+badd = Button(root, text="+", command= lambda: bottom_click("+"), padx=30, pady=20)
+bsub = Button(root, text="-", command=lambda: bottom_click("-"), padx=20, pady=20)
+bmul = Button(root, text="*", command=lambda: bottom_click("*"), padx=20, pady=20)
+bdiv = Button(root, text="/", command=lambda: bottom_click("/"), padx=20, pady=20)
+bpower = Button(root, text="^", command=lambda:bottom_click("^"), padx=30, pady=20)
 bclear = Button(root, text="clear", command=bottom_clear, padx=10, pady=20)
 bequall = Button(root, text="=", command=bottom_equall, padx=30, pady=55)
 bexit = Button(root, text="off", command=root.quit, padx=25, pady=20)
